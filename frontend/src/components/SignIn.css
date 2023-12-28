@@ -1,0 +1,47 @@
+.signIn{
+    background-image: url(https://c4.wallpaperflare.com/wallpaper/338/727/578/technology-instagram-social-media-hd-wallpaper-preview.jpg);
+    background-size: cover;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.loginForm{
+    background-color: rgba(240, 248, 255, 0.596);
+    padding: 30px;
+    border: 1px solid black;
+    border-radius: 10px;
+    color: black;
+    /* width: 80%;
+    margin: auto; */
+}
+.loginPara{
+    color: black;
+}
+.loginForm2{
+    background-color: aliceblue;
+    padding: 30px;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin-top: 5px;
+    /* width: 80%;
+    margin: auto; */
+}
+#login-btn{
+    background-color: dodgerblue;
+    color: bisque;
+    border: none;
+    border-radius: 5px;
+    height: 30px;
+    font-weight: bold;
+    padding:5px 10px;
+    cursor: pointer;
+}
+input{
+    margin: 5px;
+    padding:3px 5px;
+    outline: none;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+}
