@@ -10,6 +10,9 @@ export default function Navbar() {
         <img src={logo1} alt='InstaLogo'/>
         <img src={logo} alt='InstaLogo'/>
         <ul>
+            <Link to="/">
+               <li>Home</li>
+            </Link>
             <Link to="/SignUp">
                <li>SignUp</li>
             </Link>
@@ -18,6 +21,9 @@ export default function Navbar() {
             </Link>
             <Link to="/profile">
                <li>profile</li>
+            </Link>
+            <Link to="/createPost">
+               <li>Create post </li>
             </Link>
         </ul>
     </div>
