@@ -1,23 +1,46 @@
-import React from 'react'
+import React,{useEffect,useState} from 'react'
 import logo from '../img/profileImage1.jpg'
 import './Home.css';
+import { useNavigate } from 'react-router-dom';
 
 export default function Home() {
+
+  const navigate = useNavigate();
+  const [data, setData] = useState([])
+  useEffect(() => {
+       const token = localStorage.getItem("jwt");
+       if(!token){
+        navigate("./signup");
+       }
+      //  fetching all the posts from backend
+      fetch("http://localhost:5000/allPosts",{
+        headers:{
+          "Authorization":"Bearer " + localStorage.getItem("jwt")
+        }
+      }).then(res=>res.json())
+      .then(result =>setData(result))
+      .catch(err=>console.log(err))
+  }, [])
+  
+
   return (
     <div>
       {/*card */}
-      <div className="card">
+      {data.map((posts)=>{
+        // console.log(posts)
+        return(
+          <div className="card">
         {/* card header */}
         <div className="card-header">
           {/* card pics */}
           <div className="card-pic">
           <img src={logo} alt=''/>
           </div>
-          <h5>Anchor_name</h5>
+          <h5>{posts.postedBy.name}</h5>
         </div>
         {/*card image */}
         <div className="card-image">
-          <img src='https://images.unsplash.com/photo-1526779259212-939e64788e3c?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8ZnJlZSUyMGltYWdlc3xlbnwwfHwwfHx8MA%3D%3D' alt=''/>
+          <img src={posts.photo} alt=''/>
         </div>
 
         {/* Card content */}
@@ -26,7 +49,7 @@ export default function Home() {
             favorite
         </span>
         <p>1 likes</p>
-        <p>Post created by user</p>
+        <p>{posts.body}</p>
         </div>
         {/* add comment */}
         <div className="add-comment">
@@ -37,37 +60,10 @@ export default function Home() {
         <button className='comment'>Post</button>
         </div>
       </div>
-      <div className="card">
-        {/* card header */}
-        <div className="card-header">
-          {/* card pics */}
-          <div className="card-pic">
-          <img src={logo} alt=''/>
-          </div>
-          <h5>Anchor_name</h5>
-        </div>
-        {/*card image */}
-        <div className="card-image">
-          <img src='https://images.unsplash.com/photo-1526779259212-939e64788e3c?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8ZnJlZSUyMGltYWdlc3xlbnwwfHwwfHx8MA%3D%3D' alt=''/>
-        </div>
-
-        {/* Card content */}
-        <div className="card-content">
-        <span className="material-symbols-outlined">
-            favorite
-        </span>
-        <p>1 likes</p>
-        <p>Post created by user</p>
-        </div>
-        {/* add comment */}
-        <div className="add-comment">
-        <span className="material-symbols-outlined">
-            mood
-        </span>
-        <input type="text" placeholder='Add your comment....' />
-        <button className='comment'>Post</button>
-        </div>
-      </div>
+        )
+      })}
+      
+      
     </div>
   )
 }
