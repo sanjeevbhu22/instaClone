@@ -35,7 +35,7 @@ app.use(express.json());
 app.use(require('./routes/auth'));
 app.use(require("./routes/createPost"))
 
-// mongoose.connect("mongodb://127.0.0.1:27017/instaClone");
+
 mongoose.connect(mongoUrl);
 mongoose.connection.on("connected",()=>{
     console.log("Connected to mongodb");
