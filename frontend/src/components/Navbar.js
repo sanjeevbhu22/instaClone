@@ -34,7 +34,7 @@ export default function Navbar({login}) {
          return[
             <>
                <Link to="/">
-                  <li>Home</li>
+                  <li>SanjeevK</li>
                </Link>
                <Link to="/SignUp">
                   <li>SignUp</li>
