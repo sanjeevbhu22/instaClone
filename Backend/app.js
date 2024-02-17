@@ -23,7 +23,7 @@
 
 const express = require('express');
 const app = express();
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 const mongoose = require('mongoose');
 const cors = require('cors');
 const {mongoUrl} = require('./keys');
@@ -35,8 +35,8 @@ app.use(express.json());
 app.use(require('./routes/auth'));
 app.use(require("./routes/createPost"))
 
-mongoose.connect("mongodb://127.0.0.1:27017/instaClone");
-// mongoose.connect(mongoUrl);
+// mongoose.connect("mongodb://127.0.0.1:27017/instaClone");
+mongoose.connect(mongoUrl);
 mongoose.connection.on("connected",()=>{
     console.log("Connected to mongodb");
 });
