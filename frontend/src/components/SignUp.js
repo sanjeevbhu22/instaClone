@@ -31,7 +31,7 @@ export default function SignUp() {
         }
 
         //sending the data to the server
-        fetch("http://localhost:5000/signup",{
+        fetch("https://instaclonebackend-scdj.onrender.com/signup",{
             method:"post",
             headers:{
                 "Content-Type":"application/json"

@@ -23,7 +23,7 @@ export default function SignIn() {
         return;
     }
     //sending the data to the server
-    fetch("http://localhost:5000/signin",{
+    fetch("https://instaclonebackend-scdj.onrender.com/signin",{
         method:"post",
         headers:{
             "Content-Type":"application/json"

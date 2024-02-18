@@ -13,7 +13,7 @@ export default function Home() {
         navigate("./signup");
        }
       //  fetching all the posts from backend
-      fetch("http://localhost:5000/allPosts",{
+      fetch("https://instaclonebackend-scdj.onrender.com/allPosts",{
         headers:{
           "Authorization":"Bearer " + localStorage.getItem("jwt")
         }
