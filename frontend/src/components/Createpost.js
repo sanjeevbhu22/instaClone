@@ -16,7 +16,7 @@ export default function Createpost() {
     useEffect(() => {
         // upload the url on mongodb
         if(url){
-            fetch("https://instaclonebackend-scdj.onrender.com/createPost",{
+            fetch("http://localhost:5000/createPost",{
             method:"post",
             headers:{
                 "Content-Type":"application/json",
