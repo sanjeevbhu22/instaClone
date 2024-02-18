@@ -51,7 +51,7 @@ export default function SignIn() {
       <div className='form-containere '>
       <div className='loginForm'>
             <img className='signUpLogo' src={logo} alt=''/>
-            <p className='loginPara'> Login to see the photo and videos from your friends</p>
+            <p className='loginPara'> Login to see the book of different authors</p>
             <div>
             <input type='email' name='email' id='email' value={email} placeholder='email' onChange={(e)=>{
                     setemail(e.target.value)
